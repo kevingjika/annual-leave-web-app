@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class FormController {
 
-@GetMapping("register")
+    @GetMapping("register")
     public String userRegistrationPage (Model model) {
         UserForm userForm = new UserForm();
         model.addAttribute("userForm", userForm);
