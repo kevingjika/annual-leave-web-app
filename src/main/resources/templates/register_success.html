@@ -1,29 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Registration Success</title>
-    <style type="text/css">
-        span {
-        display : inline-block;
-        width : 200px;
-        text-align : left;
-        }
-    </style>
-
+    <meta charset="UTF-8">
+    <title>User Registered Data</title>
 </head>
 <body>
-    <div align = "center">
-        <h1>Registration Succeeded!</h1>
-        <span>Username : </span><span ></span> <br/> <br/>
-        <span>First name : </span><span> </span><br/> <br/>
-        <span>Last name : </span><span ></span><br/> <br/>
-        <span>Email : </span><span ></span><br/> <br/>
-        <span>Password : </span><span ></span><br/> <br/>
-        <span>Address : </span><span ></span><br/> <br/>
-    </div> <br/><br/>
-    <div align = "center">&emsp;&emsp;&emsp;&emsp;&emsp;
-    <a href="http://localhost:63342/annual-leave-web-app/templates/index.html?_ijt=34s9d7vpa6r053clkoqkcauftj&_ij_reload=RELOAD_ON_SAVE">LOG OUT</a>
+<div align="center">
+    <h1>Registered User Information</h1>
+    <div>
+        <p>Username : <strong th:text="${userForm.username}"></strong></p>
+        <p>Firstname : <strong th:text="${userForm.firstname}"></strong></p>
+        <p>Lastname : <strong th:text="${userForm.lastname}"></strong></p>
+        <p>Email : <strong th:text="${userForm.email}"></strong></p>
+        <p>Password : <strong th:text="${userForm.password}"></strong></p>
+        <p>Address : <strong th:text="${userForm.address}"></strong></p>
     </div>
+</div>
 </body>
 </html>

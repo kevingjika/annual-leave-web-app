@@ -1,49 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Registration</title>
+    <meta charset="UTF-8">
+    <title>User Registration Form</title>
     <style type="text/css">
         label {
-        display : inline-block;
-        width : 200px;
-        margin : 5px;
-        text-align : left;
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
         }
-
+        input[type=text], input[type=email], input[type=password], select {
+            display: inline-block;
+            width: 200px;
+        }
         button {
-        margin : 10px;
-        padding : 10px;
+            padding: 5px;
+            margin: 10px;
         }
-
-        input [type=text], input [type=password], select {
-        display : inline-block;
-        width : 200px;
-
-        }
-
     </style>
 </head>
 <body>
 <div align="center">
-    <h1>Fill in your data to log in.</h1>
-    <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=p11pki01frk2cn6lkc64vk5ggk&_ij_reload=RELOAD_ON_SAVE" method="post">
-        <label for="username">Username : *</label>
-        <textarea id = "username" name = "Username" rows = "1" cols = "21" required></textarea><br/><br/>
-        <label for="firstname">First name : *</label>
-        <textarea id = "firstname" name = "First name" rows = "1" cols = "21" required></textarea><br/><br/>
-        <label for="lastname">Last name : *</label>
-        <textarea id = "lastname" name = "Last name" rows = "1" cols = "21" required></textarea><br/><br/>
-        <label for="email">Email : *</label>
-        <textarea id = "email" name = "Email" rows = "1" cols = "21" required></textarea><br/><br/>
-        <label>Password : *</label>
-        <input type="password" id="password" name="password" required/><br/><br/>
-        <label for="education">Address : *</label>
-        <textarea id = "education" name = "Address" rows = "1" cols = "21" required></textarea><br/><br/><br/>
-        <button type="submit" value="Register">Log in</button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-        <button type="reset" value="Reset">Reset</button><br/><br/>
-        <a href="http://localhost:63342/annual-leave-web-app/templates/index.html?_ijt=piunnh2v7oj4gumtggm1beos4j&_ij_reload=RELOAD_ON_SAVE">Log out</a>
-    </form>
+    <div style="border-style:solid; width:500px">
+        <form role="form" method="post" th:action="@{/register/save}" th:object="${userForm}">
+            <label> Username : </label>
+            <input type="text" th:field="*{username}"/>
+            <br/>
+            <label> Firstname : </label>
+            <input type="text" th:field="*{firstname}"/>
+            <br/>
+            <label> Lastname : </label>
+            <input type="text" th:field="*{lastname}"/>
+            <br/>
+            <label> Email : </label>
+            <input type="text" th:field="*{email}"/>
+            <br/>
+            <label> Password : </label>
+            <input type="password" th:field="*{password}"/>
+            <br/>
+            <label> Address : </label>
+            <textarea rows="5" cols="25" th:field="*{address}">
+            </textarea>
+            <br />
+            <button type="submit">Log In</button>
+        </form>
+</div>
 </div>
 </body>
 </html>
