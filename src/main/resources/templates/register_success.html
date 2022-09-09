@@ -8,12 +8,15 @@
 <div align="center">
     <h1>Registered User Information</h1>
     <div>
+        <form action="http://localhost:63342/annual-leave-web-app/templates/register_form.html?_ijt=lep61kd1m222rpjsf7d3l85d2i&_ij_reload=RELOAD_ON_SAVE">
         <p>Username : <strong th:text="${userForm.username}"></strong></p>
         <p>Firstname : <strong th:text="${userForm.firstname}"></strong></p>
         <p>Lastname : <strong th:text="${userForm.lastname}"></strong></p>
         <p>Email : <strong th:text="${userForm.email}"></strong></p>
         <p>Password : <strong th:text="${userForm.password}"></strong></p>
         <p>Address : <strong th:text="${userForm.address}"></strong></p>
+            <button type="submit">MAIN PAGE</button>
+        </form>
     </div>
 </div>
 </body>
