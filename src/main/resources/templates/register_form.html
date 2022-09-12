@@ -24,34 +24,91 @@
         #signin {
             width: 35%;
         }
+        .header {
+            padding: 60px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+            font-size: 20px;
+        }
+        .footer {
+            padding: 60px;
+            text-align: center;
+            background: red;
+            color: white;
+            font-size: 20px;
+        }
+        .float-container {
+            padding: 20px;
+        }
+        .float-child1 {
+            padding: 20px;
+        }
+        .float-child2 {
+            padding: 20px;
+        }
     </style>
 </head>
-<body>
-<div align="center">
+<body style="background-color:powderblue;">
+<div class="header">
+    <h1>Annual Leave Web Application (ALWA)</h1>
+    <p>Annual Leave Web Application (ALWA) is an application, which can be used to apply for days off, vacations or compensation days.</p>
+</div>
+<br/>
+<div class="float-container">
+
+<div class="float-child1" align="left">
     <div style="border-style:solid; width:500px">
+
+        <h1 align="center">Don't have an account? Complete your data to sign up.</h1>
+
         <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=l39noakevhb6h11kofi2sa2bdt&_ij_reload=RELOAD_ON_SAVE" role="form" method=RequestMethod.POST th:action="@{/register/save}" th:object="${UserForm}">
-            <h1>User Registration</h1>
-            <label> Username : </label>
+            <label>&emsp;&emsp;&emsp;&emsp; Username : </label>
             <input type="text" th:field="*{username}" required/>
             <br/>
-            <label> First name : </label>
+            <label>&emsp;&emsp;&emsp;&emsp; First name : </label>
             <input type="text" th:field="*{firstname}" required/>
             <br/>
-            <label> Last name : </label>
+            <label>&emsp;&emsp;&emsp;&emsp; Last name : </label>
             <input type="text" th:field="*{lastname}" required/>
             <br/>
-            <label> Email : </label>
-            <input type="text" th:field="*{email}" required/>
+            <label>&emsp;&emsp;&emsp;&emsp; Email : </label>
+            <input type="email" th:field="*{email}" required/>
             <br/>
-            <label> Password : </label>
+            <label>&emsp;&emsp;&emsp;&emsp; Password : </label>
+            <input type="password" th:field="*{password}" required/>
+            <br/>
+            <label>&emsp;&emsp;&emsp;&emsp; Repeat password :  </label>
             <input type="password" th:field="*{password}" required/>
             <br/> <br/>
-            <label> Address : </label>
+            <label>&emsp;&emsp;&emsp;&emsp; Address : </label>
             <textarea rows="1" cols="25" th:field="*{address}" required>
             </textarea>
             <br />
-            <button type="submit">LOG IN</button>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <button type="submit" value="Sign Up">Sign Up</button>
+            <button type="reset" value="Cancel">Cancel</button>
         </form>
+    </div>
+    </div>
+        <div class="float-child1" align="right">
+            <div style="border-style:solid; width:500px">
+                    <h1 align="center">Already an user? Just complete your email and password to log in.</h1>
+                <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=l39noakevhb6h11kofi2sa2bdt&_ij_reload=RELOAD_ON_SAVE" role="form" method="RequestMethod.POST" th:action="@{/register/save}" th:object="${UserForm}"></form>
+                <label> Email : </label>
+                <input type="email" th:field="*{email}" required/>
+                <br/>
+                <label> Password : </label>
+                <input type="password" th:field="*{password}" required/>
+                <br/>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <button type="submit" value="Log In">Log In</button>
+                <button type="reset" value="Cancel">Cancel</button>
+                </form>
+            </div>
+        </div>
+<div class="footer">
+    <h1> Thank you for using our page!</h1>
 </div>
 </div>
 </body>
