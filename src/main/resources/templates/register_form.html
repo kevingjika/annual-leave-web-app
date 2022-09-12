@@ -25,11 +25,25 @@
             width: 35%;
         }
         .header {
-            padding: 60px;
+            padding: 30px;
             text-align: center;
             background: #1abc9c;
             color: white;
             font-size: 20px;
+        }
+        .float-container {
+            border: 3px solid #fff;
+            padding: 20px;
+        }
+        .float-child1 {
+            background: blue;
+            color:white;
+            float: left;
+        }
+        .float-child2 {
+            background: green;
+            color:white;
+            float: right;
         }
         .footer {
             padding: 60px;
@@ -37,15 +51,6 @@
             background: red;
             color: white;
             font-size: 20px;
-        }
-        .float-container {
-            padding: 20px;
-        }
-        .float-child1 {
-            padding: 20px;
-        }
-        .float-child2 {
-            padding: 20px;
         }
     </style>
 </head>
@@ -55,61 +60,61 @@
     <p>Annual Leave Web Application (ALWA) is an application, which can be used to apply for days off, vacations or compensation days.</p>
 </div>
 <br/>
-<div class="float-container">
-
-<div class="float-child1" align="left">
-    <div style="border-style:solid; width:500px">
-
-        <h1 align="center">Don't have an account? Complete your data to sign up.</h1>
-
-        <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=l39noakevhb6h11kofi2sa2bdt&_ij_reload=RELOAD_ON_SAVE" role="form" method=RequestMethod.POST th:action="@{/register/save}" th:object="${UserForm}">
-            <label>&emsp;&emsp;&emsp;&emsp; Username : </label>
-            <input type="text" th:field="*{username}" required/>
-            <br/>
-            <label>&emsp;&emsp;&emsp;&emsp; First name : </label>
-            <input type="text" th:field="*{firstname}" required/>
-            <br/>
-            <label>&emsp;&emsp;&emsp;&emsp; Last name : </label>
-            <input type="text" th:field="*{lastname}" required/>
-            <br/>
-            <label>&emsp;&emsp;&emsp;&emsp; Email : </label>
-            <input type="email" th:field="*{email}" required/>
-            <br/>
-            <label>&emsp;&emsp;&emsp;&emsp; Password : </label>
-            <input type="password" th:field="*{password}" required/>
-            <br/>
-            <label>&emsp;&emsp;&emsp;&emsp; Repeat password :  </label>
-            <input type="password" th:field="*{password}" required/>
-            <br/> <br/>
-            <label>&emsp;&emsp;&emsp;&emsp; Address : </label>
-            <textarea rows="1" cols="25" th:field="*{address}" required>
-            </textarea>
-            <br />
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <button type="submit" value="Sign Up">Sign Up</button>
-            <button type="reset" value="Cancel">Cancel</button>
-        </form>
-    </div>
-    </div>
-        <div class="float-child1" align="right">
-            <div style="border-style:solid; width:500px">
-                    <h1 align="center">Already an user? Just complete your email and password to log in.</h1>
-                <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=l39noakevhb6h11kofi2sa2bdt&_ij_reload=RELOAD_ON_SAVE" role="form" method="RequestMethod.POST" th:action="@{/register/save}" th:object="${UserForm}"></form>
-                <label> Email : </label>
+<div class="float-containter">
+    <div class="float-child1" align="left">
+        <div style="border-style:solid; width:500px">
+            <h1 align="center">Don't have an account? Complete your data to sign up.</h1>
+            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=l39noakevhb6h11kofi2sa2bdt&_ij_reload=RELOAD_ON_SAVE" role="form" method=RequestMethod.POST th:action="@{/register/save}" th:object="${UserForm}">
+                <label>&emsp;&emsp;&emsp;&emsp; Username : </label>
+                <input type="text" th:field="*{username}" required/>
+                <br/>
+                <label>&emsp;&emsp;&emsp;&emsp; First name : </label>
+                <input type="text" th:field="*{firstname}" required/>
+                <br/>
+                <label>&emsp;&emsp;&emsp;&emsp; Last name : </label>
+                <input type="text" th:field="*{lastname}" required/>
+                <br/>
+                <label>&emsp;&emsp;&emsp;&emsp; Email : </label>
                 <input type="email" th:field="*{email}" required/>
                 <br/>
-                <label> Password : </label>
+                <label>&emsp;&emsp;&emsp;&emsp; Password : </label>
                 <input type="password" th:field="*{password}" required/>
                 <br/>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <button type="submit" value="Log In">Log In</button>
+                <label>&emsp;&emsp;&emsp;&emsp; Repeat password :  </label>
+                <input type="password" th:field="*{password}" required/>
+                <br/> <br/>
+                <label>&emsp;&emsp;&emsp;&emsp; Address : </label>
+                <textarea rows="1" cols="25" th:field="*{address}" required>
+            </textarea>
+                <br />
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <button type="submit" value="Sign Up">Sign Up</button>
                 <button type="reset" value="Cancel">Cancel</button>
-                </form>
-            </div>
+            </form>
         </div>
+    </div>
+    <br/><br/>
+    <div class="float-child2" >
+        <div style="border-style:solid; width:500px; height:300px">
+            <h1 align="center">Already a user? Just complete your email and password to log in.</h1>
+            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=l39noakevhb6h11kofi2sa2bdt&_ij_reload=RELOAD_ON_SAVE" role="form" method="RequestMethod.POST" th:action="@{/register/save}" th:object="${UserForm}"></form>
+            <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Email : </label>
+            <input type="email" th:field="*{email}" required/>
+            <br/>
+            <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Password : </label>
+            <input type="password" th:field="*{password}" required/>
+            <br/>
+            <br/>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <button type="submit" value="Log In">Log In</button>&emsp;&emsp;
+            <button type="reset" value="Cancel">Cancel</button> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </form>
+        </div>
+    </div>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="footer">
     <h1> Thank you for using our page!</h1>
-</div>
 </div>
 </body>
 </html>
