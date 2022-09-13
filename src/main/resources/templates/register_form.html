@@ -56,8 +56,9 @@
     <p align="center">Annual Leave Web Application (ALWA) is an application, which can be used to apply for days off, vacations or compensation days.</p>
 </div>
 <br/>
+<div class="float-container">
     <div class="float-child1" align="left">
-        <div style="border-style:solid; width:610px; height:375px" >
+        <div style="border-style:solid; width:610px; height:375px">
             <h1 align="center">Don't have an account? </h1>
             <h1 align="center">Complete your data to sign up.</h1>
             <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?" role="form" method=post th:action="@{/register/save}" th:object="${UserForm}">
@@ -75,9 +76,9 @@
                 <br/>
                 <label>&emsp;&emsp;&emsp;&emsp; Password : </label>
                 <input type="password" id="password" th:field="*{password}" required/>
-                &emsp;<input type="checkbox" onclick="myFunction()">Show Password
+                &emsp;<input type="checkbox" onclick="myFunction1()">Show Password
                 <script>
-                    function myFunction() {
+                    function myFunction1() {
                     var x = document.getElementById("password");
                     if (x.type === "password") {
                     x.type = "text";
@@ -108,6 +109,17 @@
             <br/>
             <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Password : </label>
             <input type="password" th:field="*{password}" required/>
+            &emsp;<input type="checkbox" onclick="myFunction2()">Show Password
+            <script>
+                    function myFunction2() {
+                    var y = document.getElementById("password");
+                    if (y.type === "password") {
+                    y.type = "text";
+                        } else {
+                    y.type = "password";
+                    }
+                }
+                </script>
             <br/>
             <br/>
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
@@ -116,6 +128,7 @@
             </form>
         </div>
     </div>
+</div>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="footer">
     <p>
