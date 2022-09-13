@@ -91,7 +91,7 @@
         <div style="border-style:solid; width:620px; height:300px">
             <h1 align="center">Already a user?</h1>
             <h1 align="center">Just put your email and password to log in.</h1>
-            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?" role="form" method="post" th:action="@{/register/save}" th:object="${UserForm}"></form>
+            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?" role="form" method="post" th:action="@{/register}" th:object="${UserForm}"></form>
             <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Email : </label>
             <input type="email" th:field="*{email}" required/>
             <br/>
