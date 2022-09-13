@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <title>User Registration Form</title>
     <style type="text/css">
         label {
@@ -25,28 +25,24 @@
             width: 35%;
         }
         .header {
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             background: #1abc9c;
             color: white;
             font-size: 20px;
         }
-        .float-container {
-            border: 3px solid #fff;
-            padding: 20px;
-        }
         .float-child1 {
             background: blue;
             color:white;
-            float: left;
+            float: right;
         }
         .float-child2 {
             background: green;
             color:white;
-            float: right;
+            float: left;
         }
         .footer {
-            padding: 60px;
+            padding: 30px;
             text-align: center;
             background: red;
             color: white;
@@ -57,14 +53,14 @@
 <body style="background-color:powderblue;">
 <div class="header">
     <h1>Annual Leave Web Application (ALWA)</h1>
-    <p>Annual Leave Web Application (ALWA) is an application, which can be used to apply for days off, vacations or compensation days.</p>
+    <p align="left">Annual Leave Web Application (ALWA) is an application, which can be used to apply for days off, vacations or compensation days. If you are a new user complete your data on the right side of the page. Otherwise, if you are an existing user, complete your data on the left side of the page.</p>
 </div>
 <br/>
-<div class="float-containter">
     <div class="float-child1" align="left">
-        <div style="border-style:solid; width:500px">
-            <h1 align="center">Don't have an account? Complete your data to sign up.</h1>
-            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=l39noakevhb6h11kofi2sa2bdt&_ij_reload=RELOAD_ON_SAVE" role="form" method=RequestMethod.POST th:action="@{/register/save}" th:object="${UserForm}">
+        <div style="border-style:solid; width:610px; height:375px" >
+            <h1 align="center">Don't have an account? </h1>
+            <h1 align="center">Complete your data to sign up.</h1>
+            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?" role="form" method=post th:action="@{/register/save}" th:object="${UserForm}">
                 <label>&emsp;&emsp;&emsp;&emsp; Username : </label>
                 <input type="text" th:field="*{username}" required/>
                 <br/>
@@ -79,25 +75,23 @@
                 <br/>
                 <label>&emsp;&emsp;&emsp;&emsp; Password : </label>
                 <input type="password" th:field="*{password}" required/>
-                <br/>
-                <label>&emsp;&emsp;&emsp;&emsp; Repeat password :  </label>
-                <input type="password" th:field="*{password}" required/>
                 <br/> <br/>
                 <label>&emsp;&emsp;&emsp;&emsp; Address : </label>
                 <textarea rows="1" cols="25" th:field="*{address}" required>
             </textarea>
                 <br />
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="submit" value="Sign Up">Sign Up</button>
                 <button type="reset" value="Cancel">Cancel</button>
             </form>
         </div>
     </div>
     <br/><br/>
-    <div class="float-child2" >
-        <div style="border-style:solid; width:500px; height:300px">
-            <h1 align="center">Already a user? Just complete your email and password to log in.</h1>
-            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?_ijt=l39noakevhb6h11kofi2sa2bdt&_ij_reload=RELOAD_ON_SAVE" role="form" method="RequestMethod.POST" th:action="@{/register/save}" th:object="${UserForm}"></form>
+    <div class="float-child2">
+        <div style="border-style:solid; width:620px; height:300px">
+            <h1 align="center">Already a user?</h1>
+            <h1 align="center">Just put your email and password to log in.</h1>
+            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?" role="form" method="post" th:action="@{/register/save}" th:object="${UserForm}"></form>
             <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Email : </label>
             <input type="email" th:field="*{email}" required/>
             <br/>
@@ -105,16 +99,19 @@
             <input type="password" th:field="*{password}" required/>
             <br/>
             <br/>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <button type="submit" value="Log In">Log In</button>&emsp;&emsp;
-            <button type="reset" value="Cancel">Cancel</button> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+            <input type="submit" value="Log In"></input>&emsp;&emsp;
+            <input type="reset" value="Cancel"></input> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </form>
         </div>
     </div>
-</div>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="footer">
-    <h1> Thank you for using our page!</h1>
+    <p>
+    <h1>Thank you for using our page!</h1>
+    <h3 align="left"> Contact : +355 69 58 00 413 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Created by : Kevin Gjika</h3>
+    <h3 align="left"> Email : gjikakevin@gmail.com &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Released in : 27.09.2022</h3>
+    </p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <title>User Registered Data</title>
     <style type="text/css">
 
@@ -24,11 +24,11 @@
 
     </style>
 </head>
-<body>
+<body style="background-color:powderblue;">
 <div align="center">
     <h1>Registered User Information</h1>
     <div>
-        <form action="http://localhost:63342/annual-leave-web-app/templates/register_form.html?_ijt=lep61kd1m222rpjsf7d3l85d2i&_ij_reload=RELOAD_ON_SAVE" method="get">
+        <form action="http://localhost:63342/annual-leave-web-app/templates/register_form.html?" method="get">
         <p>Username : <strong th:text="${userForm.username}"></strong></p>
         <p>First name : <strong th:text="${userForm.firstname}"></strong></p>
         <p>Last name : <strong th:text="${userForm.lastname}"></strong></p>
