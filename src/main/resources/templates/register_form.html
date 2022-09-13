@@ -74,8 +74,19 @@
                 <input type="email" th:field="*{email}" required/>
                 <br/>
                 <label>&emsp;&emsp;&emsp;&emsp; Password : </label>
-                <input type="password" th:field="*{password}" required/>
-                <br/> <br/>
+                <input type="password" id="password" th:field="*{password}" required/>
+                &emsp;<input type="checkbox" onclick="myFunction()">Show Password
+                <script>
+                    function myFunction() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                    x.type = "text";
+                        } else {
+                    x.type = "password";
+                    }
+                }
+                </script>
+                <br/><br/>
                 <label>&emsp;&emsp;&emsp;&emsp; Address : </label>
                 <textarea rows="1" cols="25" th:field="*{address}" required>
             </textarea>
