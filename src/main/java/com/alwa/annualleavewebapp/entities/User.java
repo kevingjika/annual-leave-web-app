@@ -1,10 +1,7 @@
 package com.alwa.annualleavewebapp.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,9 +11,10 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserForm {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
@@ -27,6 +25,7 @@ public class UserForm {
     private String email;
     private String password;
     private String address;
+
 
 
 

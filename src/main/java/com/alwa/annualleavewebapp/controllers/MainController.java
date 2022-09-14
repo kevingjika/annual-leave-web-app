@@ -1,6 +1,6 @@
 package com.alwa.annualleavewebapp.controllers;
 
-import com.alwa.annualleavewebapp.entities.UserForm;
+import com.alwa.annualleavewebapp.entities.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Description;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -10,22 +10,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Arrays;
-import java.util.List;
-
 @Controller
-public class FormController {
+public class MainController {
 
     @GetMapping("/register")
-    public String showForm (Model model) {
-        UserForm userForm = new UserForm();
-        model.addAttribute("userForm", userForm);
-        return "register-form";
+    public String showForm(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "register_form";
     }
 
-    @PostMapping("register/save")
-    public String submitForm(Model model, @ModelAttribute("userForm") UserForm userForm) {
-        model.addAttribute("userForm", userForm);
+    @PostMapping("/register")
+    public String submitForm(@ModelAttribute("user") User user) {
+        System.out.println(user);
         return "register-success";
     }
 
