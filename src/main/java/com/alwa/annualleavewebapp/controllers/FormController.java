@@ -16,8 +16,8 @@ import java.util.List;
 @Controller
 public class FormController {
 
-    @GetMapping("register")
-    public String userRegistrationPage (Model model) {
+    @GetMapping("/register")
+    public String showForm (Model model) {
         UserForm userForm = new UserForm();
         model.addAttribute("userForm", userForm);
         return "register-form";
