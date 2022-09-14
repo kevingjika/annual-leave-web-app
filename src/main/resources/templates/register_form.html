@@ -60,7 +60,7 @@
         <div style="border-style:solid; width:610px; height:375px">
             <h1 align="center">Don't have an account? </h1>
             <h1 align="center">Complete your data to sign up.</h1>
-            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?" role="form" method=post th:action="@{/register}" th:object="${UserForm}">
+            <form action="http://localhost:63342/annual-leave-web-app/templates/register_success.html?" role="form" method=post th:action="@{/register}" th:object="${userForm}">
                 <label>&emsp;&emsp;&emsp;&emsp; Username : </label>
                 <input type="text" th:field="*{username}" required/>
                 <br/>
