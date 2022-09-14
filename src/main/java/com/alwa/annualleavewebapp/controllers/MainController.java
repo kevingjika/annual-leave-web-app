@@ -26,7 +26,7 @@ public class MainController {
     @PostMapping("/register")
     public String submitForm(@ModelAttribute("user") User user) {
         System.out.println(user);
-        return "register-success";
+        return "register_success";
     }
 
     @Bean
