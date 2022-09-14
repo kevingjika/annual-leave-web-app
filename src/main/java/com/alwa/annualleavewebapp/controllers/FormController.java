@@ -1,6 +1,9 @@
 package com.alwa.annualleavewebapp.controllers;
 
 import com.alwa.annualleavewebapp.entities.UserForm;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Description;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +27,14 @@ public class FormController {
     public String submitForm(Model model, @ModelAttribute("userForm") UserForm userForm) {
         model.addAttribute("userForm", userForm);
         return "register-success";
+    }
+
+    @Bean
+    @Description("Spring Message Resolver")
+    public ResourceBundleMessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("messages");
+        return messageSource;
     }
 
 

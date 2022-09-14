@@ -32,12 +32,12 @@
     <h1>Registered User Information</h1>
     <div>
         <form action="http://localhost:63342/annual-leave-web-app/templates/register_form.html?" method="get">
-        <p>Username : <strong th:text="${userForm.username}"></strong></p>
-        <p>First name : <strong th:text="${userForm.firstname}"></strong></p>
-        <p>Last name : <strong th:text="${userForm.lastname}"></strong></p>
-        <p>Email : <strong th:text="${userForm.email}"></strong></p>
-        <p>Password : <strong th:text="${userForm.password}"></strong></p>
-        <p>Address : <strong th:text="${userForm.address}"></strong></p>
+        <p>Username : <span th:text="${username}"></span></p>
+        <p>First name : <span th:text="${firstname}"></span></p>
+        <p>Last name : <span th:text="${lastname}"></span></p>
+        <p>Email : <span th:text="${email}"></span></p>
+        <p>Password : <span th:text="${password}"></span></p>
+        <p>Address : <span th:text="${address}"></span></p>
             <button type="submit">LOG OUT</button>
         </form>
     </div>
