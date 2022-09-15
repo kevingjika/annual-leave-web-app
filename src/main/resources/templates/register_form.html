@@ -60,7 +60,7 @@
         <div style="border-style:solid; width:610px; height:375px">
             <h1 align="center">Don't have an account? </h1>
             <h1 align="center">Complete your data to sign up.</h1>
-            <form action="http://localhost:63342/annual-leave-web-app/templates/annual_leave_web_application.html?" role="form" method=post th:action="@{/register}" th:object="${User}">
+            <form action="http://localhost:63342/annual-leave-web-app/templates/annual_leave_web_application.html?" role="form" method=post th:action="@{/create/user}" th:object="${User}">
                 <label>&emsp;&emsp;&emsp;&emsp; Username : </label>
                 <input type="text" th:field="*{username}" required/>
                 <br/>
@@ -102,7 +102,7 @@
         <div style="border-style:solid; width:620px; height:300px">
             <h1 align="center">Already a user?</h1>
             <h1 align="center">Just put your email and password to log in.</h1>
-            <form action="http://localhost:63342/annual-leave-web-app/templates/annual_leave_web_application.html?" role="form" method="post" th:action="@{/register}" th:object="${User}"></form>
+            <form action="http://localhost:63342/annual-leave-web-app/templates/annual_leave_web_application.html?" role="form" method="post" th:action="@{/create/user}" th:object="${User}">
             <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Email : </label>
             <input type="email" th:field="*{email}" required/>
             <br/>
@@ -112,10 +112,10 @@
             <script>
                     function myFunction2() {
                     var y = document.getElementById("password");
-                    if (y.type === "password") {
-                    y.type = "text";
+                    if (x.type === "password") {
+                    x.type = "text";
                         } else {
-                    y.type = "password";
+                    x.type = "password";
                     }
                 }
                 </script>
