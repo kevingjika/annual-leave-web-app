@@ -1,6 +1,8 @@
 package com.alwa.annualleavewebapp.controllers;
 
+import com.alwa.annualleavewebapp.entities.Application;
 import com.alwa.annualleavewebapp.entities.User;
+import com.alwa.annualleavewebapp.services.ApplicationService;
 import com.alwa.annualleavewebapp.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,8 @@ public class MainController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    ApplicationService applicationService;
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
 
@@ -50,6 +54,25 @@ public class MainController {
     public ResponseEntity<User> deleteUser(@RequestParam(name = "id") long id) throws Exception {
         userService.deleteUser(id);
         return new ResponseEntity("User deleted successfully.", HttpStatus.OK);
+    }
+
+    @PostMapping("/create/application")
+    public ResponseEntity<Application> createApplication(@RequestBody Application application) throws Exception {
+        Application savedApplication = applicationService.createApplication(application);
+        return new ResponseEntity(savedApplication, HttpStatus.OK);
+    }
+
+    @PutMapping("/edit/application")
+    public ResponseEntity<Application> editApplication(@RequestBody Application application, @RequestParam long id) throws Exception {
+        application.setId(id);
+        Application updatedApplication = applicationService.editApplication(application);
+        return new ResponseEntity(updatedApplication, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/application")
+    public ResponseEntity<Application> deleteApplication(@RequestParam(name = "id") long id) throws Exception {
+        applicationService.deleteApplication(id);
+        return new ResponseEntity("Application deleted successfully.", HttpStatus.OK);
     }
 
 
