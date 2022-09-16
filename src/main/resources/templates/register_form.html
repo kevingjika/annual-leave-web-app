@@ -103,25 +103,27 @@
             <h1 align="center">Already a user?</h1>
             <h1 align="center">Just put your email and password to log in.</h1>
             <form action="http://localhost:63342/annual-leave-web-app/templates/annual_leave_web_application.html?" role="form" method="post" th:action="@{/create/user}" th:object="${User}">
-            <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Email : </label>
+            <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Email : </label>
             <input type="email" th:field="*{email}" required/>
             <br/>
-            <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Password : </label>
-            <input type="password" th:field="*{password}" required/>
-            &emsp;<input type="checkbox" onclick="myFunction2()">Show Password
-            <script>
+            <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Password : </label>
+                <input type="password" id="password1" th:field="*{password}" required/>
+                &emsp;<input type="checkbox" onclick="myFunction2()">Show Password
+                <script>
                     function myFunction2() {
-                    var y = document.getElementById("password");
-                    if (y.type === "password") {
-                    y.type = "text";
+                    var x = document.getElementById("password1");
+                    if (x.type === "password") {
+                    x.type = "text";
                         } else {
-                    y.type = "password";
+                    x.type = "password";
                     }
                 }
                 </script>
-            <br/>
-            <br/>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+                &emsp;
+
+                <br/>
+                <br/>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
             <input type="submit" value="Log In"></input>&emsp;&emsp;
             <input type="reset" value="Cancel"></input> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             </form>
