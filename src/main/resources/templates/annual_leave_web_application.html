@@ -92,17 +92,18 @@
     </style>
 </head>
 <body style="background-color:powderblue;">
-<div align="center">
-    <h1>Registered User Information</h1>
+<h1 align="center">Annual Leave Web Application</h1>
+<div align="right">
     <div>
         <form action="http://localhost:63342/annual-leave-web-app/templates/register_form.html?" method="get">
-        <p>Username : <span th:text="${username}"></span></p>
-        <p>First name : <span th:text="${firstname}"></span></p>
-        <p>Last name : <span th:text="${lastname}"></span></p>
-        <p>Email : <span th:text="${email}"></span></p>
-        <p>Password : <span th:text="${password}"></span></p>
-        <p>Address : <span th:text="${address}"></span></p>
-            <button type="submit">LOG OUT</button>
+        <p align="left">Username : <span th:text="${username}"></span></p>
+        <p align="left">First name : <span th:text="${firstname}"></span></p>
+        <p align="left">Last name : <span th:text="${lastname}"></span></p>
+        <p align="left">Email : <span th:text="${email}"></span></p>
+        <p align="left">Password : <span th:text="${password}"></span></p>
+            <p align="left">Address : <span th:text="${address}"></span><br/>
+                <br/>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button type="submit">LOG OUT</button>
         </form>
     </div>
 </div>
@@ -128,5 +129,6 @@
       document.querySelector(".openChat").style.display = "none";
    }
 </script>
+
 </body>
 </html>
