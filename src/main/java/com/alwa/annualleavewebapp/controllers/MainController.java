@@ -2,6 +2,7 @@ package com.alwa.annualleavewebapp.controllers;
 
 import com.alwa.annualleavewebapp.entities.Application;
 import com.alwa.annualleavewebapp.entities.User;
+import com.alwa.annualleavewebapp.repository.UserRepository;
 import com.alwa.annualleavewebapp.services.ApplicationService;
 import com.alwa.annualleavewebapp.services.UserService;
 import org.slf4j.Logger;
@@ -12,9 +13,12 @@ import org.springframework.context.annotation.Description;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @Controller
@@ -24,6 +28,40 @@ public class MainController {
     UserService userService;
     @Autowired
     ApplicationService applicationService;
+
+    @Autowired
+    private UserRepository userRepo;
+
+    @GetMapping("")
+    public String viewHomePage() {
+        return "index";
+    }
+
+    @GetMapping("/register")
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new User());
+
+        return "signup_form";
+    }
+
+    @PostMapping("/process_register")
+    public String processRegister(User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+
+        userRepo.save(user);
+
+        return "register_success";
+    }
+
+    @GetMapping("/users")
+    public String listUsers(Model model) {
+        List<User> listUsers = userRepo.findAll();
+        model.addAttribute("listUsers", listUsers);
+
+        return "users";
+    }
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
 
@@ -73,20 +111,6 @@ public class MainController {
     public ResponseEntity<Application> deleteApplication(@RequestParam(name = "id") long id) throws Exception {
         applicationService.deleteApplication(id);
         return new ResponseEntity("Application deleted successfully.", HttpStatus.OK);
-    }
-
-
-    @GetMapping("/register")
-    public String showForm(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "register_form";
-    }
-
-    @PostMapping("/register")
-    public String submitForm(@ModelAttribute("user") User user) {
-        System.out.println(user);
-        return "register_success";
     }
 
     @Bean
