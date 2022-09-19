@@ -1,4 +1,4 @@
-package com.alwa.annualleavewebapp.controllers.security;
+package com.alwa.annualleavewebapp.security;
 
 import javax.sql.DataSource;
 

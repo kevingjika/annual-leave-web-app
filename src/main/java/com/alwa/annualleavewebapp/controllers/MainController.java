@@ -113,13 +113,4 @@ public class MainController {
         return new ResponseEntity("Application deleted successfully.", HttpStatus.OK);
     }
 
-    @Bean
-    @Description("Spring Message Resolver")
-    public ResourceBundleMessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("messages");
-        return messageSource;
-    }
-
-
 }
