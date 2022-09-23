@@ -1,5 +1,6 @@
 package com.alwa.annualleavewebapp.controllers;
 
+import antlr.BaseAST;
 import com.alwa.annualleavewebapp.entities.Application;
 import com.alwa.annualleavewebapp.entities.User;
 import com.alwa.annualleavewebapp.repository.UserRepository;
@@ -13,14 +14,19 @@ import org.springframework.context.annotation.Description;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.Column;
 import java.util.List;
 
-@RestController
 @Controller
 public class MainController {
 
@@ -32,35 +38,45 @@ public class MainController {
     @Autowired
     private UserRepository userRepo;
 
-    @GetMapping("")
     public String viewHomePage() {
         return "index";
     }
 
-    @GetMapping("/register")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("user", new User());
-
-        return "signup_form";
+    @Bean
+    public PasswordEncoder encoder() {
+        return new BCryptPasswordEncoder();
     }
 
-    @PostMapping("/process_register")
-    public String processRegister(User user) {
+    @PostMapping("/register_success")
+    public ModelAndView processRegister(User user) {
+        ModelAndView modelAndView = new ModelAndView("register_success");
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-
         userRepo.save(user);
-
-        return "register_success";
+        return modelAndView;
     }
 
     @GetMapping("/users")
-    public String listUsers(Model model) {
+    public ModelAndView listUsers(Model model) {
+        ModelAndView modelAndView = new ModelAndView("users");
         List<User> listUsers = userRepo.findAll();
         model.addAttribute("listUsers", listUsers);
 
-        return "users";
+        return modelAndView;
+    }
+
+    @GetMapping("/index")
+    public ModelAndView index(Model model) {
+        ModelAndView modelAndView = new ModelAndView("index");
+
+        return modelAndView;
+    }
+    @GetMapping("/register")
+    public ModelAndView register(Model model) {
+        ModelAndView modelAndView = new ModelAndView("register");
+
+        return modelAndView;
     }
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
@@ -92,6 +108,12 @@ public class MainController {
     public ResponseEntity<User> deleteUser(@RequestParam(name = "id") long id) throws Exception {
         userService.deleteUser(id);
         return new ResponseEntity("User deleted successfully.", HttpStatus.OK);
+    }
+
+    @GetMapping("/get/all/users")
+    public ResponseEntity<User> getAllUsers() {
+        List<User> listOfUsers = userService.findAll();
+        return new ResponseEntity(listOfUsers, HttpStatus.OK);
     }
 
     @PostMapping("/create/application")

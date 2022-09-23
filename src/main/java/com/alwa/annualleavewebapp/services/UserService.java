@@ -5,6 +5,7 @@ import com.alwa.annualleavewebapp.exceptions.NoUserFoundException;
 import com.alwa.annualleavewebapp.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,8 +26,8 @@ public class UserService {
         user.setPassword(user.getPassword());
         user.setAddress(user.getAddress());
 
-        Optional<User> findIfUserExists1 = userRepository.findByEmail(user.getEmail());
-        Optional<User> findIfUserExists2 = userRepository.findByPassword(user.getPassword());
+        Optional<User> findIfUserExists1 = userRepository.findUserByEmail(user.getEmail());
+        Optional<User> findIfUserExists2 = userRepository.findUserByPassword(user.getPassword());
 
         if (findIfUserExists1.isPresent() && findIfUserExists2.isPresent()) {
             throw new NoUserFoundException("User exists.");
@@ -59,6 +60,21 @@ public class UserService {
 
         userRepository.deleteById(id);
 
+    }
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
 
+    public User login(User user) throws NoUserFoundException {
+        user.setUsername(user.getUsername());
+        user.setPassword(user.getPassword());
+        Optional<User> findIfUserExists1 = userRepository.findUserByEmail(user.getEmail());
+        Optional<User> findIfUserExists2 = userRepository.findUserByPassword(user.getPassword());
+
+        if (!findIfUserExists1.isPresent() && !findIfUserExists2.isPresent()) {
+            throw new NoUserFoundException("User doesn't exists.");
+        }
+
+        return userRepository.save(user);
     }
 }

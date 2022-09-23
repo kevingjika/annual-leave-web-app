@@ -2,10 +2,7 @@ package com.alwa.annualleavewebapp.entities;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -25,5 +22,7 @@ public class User {
     private String email;
     private String password;
     private String address;
+    @Column(name = "full_name")
+    private String fullName;
 
 }

@@ -41,7 +41,7 @@ public class ApplicationService {
         findIfApplicationExists.get().setDays_off(application.getDays_off());
 
         if (!findIfApplicationExists.isPresent()) {
-            throw new NoApplicationFoundException("Application does't exists.");
+            throw new NoApplicationFoundException("Application doesn't exists.");
         }
 
         return applicationRepository.save(findIfApplicationExists.get());
