@@ -38,6 +38,7 @@ public class MainController {
     @Autowired
     private UserRepository userRepo;
 
+    @GetMapping("")
     public String viewHomePage() {
         return "index";
     }
