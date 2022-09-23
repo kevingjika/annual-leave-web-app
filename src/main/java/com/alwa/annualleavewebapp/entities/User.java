@@ -22,7 +22,5 @@ public class User {
     private String email;
     private String password;
     private String address;
-    @Column(name = "full_name")
-    private String fullName;
 
 }
